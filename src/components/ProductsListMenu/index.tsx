@@ -1,5 +1,5 @@
 import Stores from '../../models/Stores'
-import Product from '../Product'
+import ProductMenu from '../ProductMenu'
 import { Container, List } from './styles'
 
 type Props = {
@@ -7,15 +7,13 @@ type Props = {
   stores: Stores[]
 }
 
-const ProductsList = ({ background, stores }: Props) => (
+const ProductsListMenu = ({ background, stores }: Props) => (
   <Container>
     <List>
       {stores.map((store) => (
-        <Product
+        <ProductMenu
           key={store.id}
           image={store.image}
-          nota={store.nota}
-          infos={store.infos}
           title={store.title}
           description={store.description}
         />
@@ -24,4 +22,4 @@ const ProductsList = ({ background, stores }: Props) => (
   </Container>
 )
 
-export default ProductsList
+export default ProductsListMenu

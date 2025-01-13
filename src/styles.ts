@@ -1,9 +1,10 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
 export const cores = {
-  branca: '#eee',
+  branca: '#fff',
   rosa: '#E66767',
-  rosaClaro: '#FFEBD9'
+  rosaClaro: '#FFEBD9',
+  rosaTransparente: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -15,13 +16,13 @@ export const GlobalCss = createGlobalStyle`
 }
 
 body {
-  background-color: ${cores.branca};
+  background-color: ${cores.rosaTransparente};
   color: ${cores.branca};
 }
-`
 
-export const Container = styled.div`
+.container {
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
+}
 `

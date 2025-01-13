@@ -4,19 +4,14 @@ import { cores } from '../../styles'
 export const HeaderBar = styled.header`
   width: 1366px;
   height: 186px;
+  margin-top: -23px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-`
 
-export const Links = styled.ul`
-  display: flex;
-  margin-left: 40px;
-`
-
-export const LinkItem = styled.li`
-  display: flex;
-  margin-right: 16px;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   a {
     color: ${cores.rosa};
@@ -24,6 +19,20 @@ export const LinkItem = styled.li`
     text-decoration: none;
     font-weight: bold;
   }
+
+  img {
+    width: 125px;
+    height: 57px;
+  }
+`
+
+export const Links = styled.ul`
+  display: flex;
+`
+
+export const LinkItem = styled.li`
+  display: flex;
+  margin-right: 16px;
 `
 
 export const LinkCart = styled.a`
@@ -31,5 +40,4 @@ export const LinkCart = styled.a`
   font-size: 18px;
   text-decoration: none;
   font-weight: bold;
-  margin-right: 40px;
 `

@@ -1,14 +1,12 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
 
 export const Container = styled.section`
-  padding-top: 56px;
-  padding-bottom: 56px;
-  background-color: ${cores.branca};
+  margin-top: 80px;
+  margin: 80px 171px;
 `
 
 export const List = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 80px;
 `

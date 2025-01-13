@@ -1,15 +1,38 @@
-import image from '../../assets/image/image.png'
-import { Botao, Card, Texto, Title } from './styles'
+import Button from '../Button'
+import Tag from '../Tag'
+import { Avaliacao, Card, Titulo, Titulos, Text, Infos } from './styles'
 
-const Product = () => (
+type Props = {
+  title: string
+  description: string
+  infos: string[]
+  image: string
+  nota: string
+}
+
+const Product = ({ title, description, infos, image, nota }: Props) => (
   <Card>
-    <img src={image} />
-    <Title>Pizza Marguerita</Title>
-    <Texto>
-      A clássica Marguerita: molho de tomate suculento, mussarela derretida,
-      manjericão fresco e um toque de azeite. Sabor e simplicidade!
-    </Texto>
-    <Botao href="#">Adicionar ao carrinho</Botao>
+    <img src={image} alt={title} />
+    <Infos>
+      {infos.map((info) => (
+        <Tag key={info}>{info}</Tag>
+      ))}
+    </Infos>
+    <Titulos>
+      <Titulo>{title}</Titulo>
+      <Avaliacao>
+        <Titulo>4.6</Titulo>
+        <img src={nota} />
+      </Avaliacao>
+    </Titulos>
+    <Text>{description}</Text>
+    <Button
+      type="link"
+      to="/perfil"
+      title="Clique aqui para conhecer o restaurante"
+    >
+      Saiba mais
+    </Button>
   </Card>
 )
 

@@ -12,8 +12,7 @@ export const Imagem = styled.div`
 export const Titulo = styled.h2`
   font-size: 32px;
   font-weight: 900;
-  padding-top: 140px;
-  padding-left: 170px;
+  padding-top: 215px;
   color: ${cores.branca};
 `
 
@@ -21,6 +20,6 @@ export const Italiana = styled.h3`
   font-size: 32px;
   font-weight: 100;
   padding-top: 25px;
-  padding-left: 170px;
+  margin-bottom: -55px;
   color: ${cores.branca};
 `

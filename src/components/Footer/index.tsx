@@ -6,7 +6,7 @@ import { FooterBar } from './styles'
 
 export const Footer = () => (
   <FooterBar>
-    <a href="#">
+    <a className="logo" href="#">
       <img src={logo} alt="Logo" />
     </a>
     <div>
@@ -20,7 +20,7 @@ export const Footer = () => (
         <img src={twitter} alt="Twitter" />
       </a>
     </div>
-    <div>
+    <div className="text">
       <p>
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade <br /> dos produtos é toda do
