@@ -1,27 +1,37 @@
-import Stores from '../../models/Stores'
+import { Restaurantes } from '../../pages/Home'
 import Product from '../Product'
 import { Container, List } from './styles'
 
-type Props = {
-  background: 'whit' | 'pink'
-  stores: Stores[]
+export type Props = {
+  background: 'with' | 'pink'
+  restaurantes: Restaurantes[]
 }
 
-const ProductsList = ({ background, stores }: Props) => (
-  <Container>
-    <List>
-      {stores.map((store) => (
-        <Product
-          key={store.id}
-          image={store.image}
-          nota={store.nota}
-          infos={store.infos}
-          title={store.title}
-          description={store.description}
-        />
-      ))}
-    </List>
-  </Container>
-)
+const ProductsList = ({ restaurantes }: Props) => {
+  const formataPreco = (preco: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
+  return (
+    <Container>
+      <List>
+        {restaurantes.map((restaurante) => (
+          <Product
+            key={restaurante.id}
+            id={restaurante.id}
+            titulo={restaurante.titulo}
+            tipo={restaurante.tipo}
+            avaliacao={restaurante.avaliacao}
+            descricao={restaurante.descricao}
+            capa={restaurante.capa}
+          />
+        ))}
+      </List>
+    </Container>
+  )
+}
 
 export default ProductsList

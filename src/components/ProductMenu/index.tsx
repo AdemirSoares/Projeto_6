@@ -1,26 +1,31 @@
 import ButtonAdicionar from '../ButtonAdicionar'
-import { Card, Titulo, Titulos, Text } from './styles'
+import { Card, Titulos, Text, Titulo } from './styles'
 
 type Props = {
-  title: string
-  description: string
-  image: string
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
 }
 
-const ProductMenu = ({ title, description, image }: Props) => (
+const ProductMenu = ({ foto, preco, id, nome, descricao, porcao }: Props) => (
   <Card>
-    <img src={image} alt={title} />
+    <img src={foto} alt={nome} />
     <Titulos>
-      <Titulo>{title}</Titulo>
+      <Titulo>{nome}</Titulo>
     </Titulos>
-    <Text>{description}</Text>
+    <Text>{descricao}</Text>
     <ButtonAdicionar
       type="link"
-      to="/perfil"
+      to={`/${id}`}
       title="Clique aqui para conhecer o restaurante"
     >
       Adicionar ao carrinho
     </ButtonAdicionar>
+    <Titulo>{preco}</Titulo>
+    <Titulo>{porcao}</Titulo>
   </Card>
 )
 

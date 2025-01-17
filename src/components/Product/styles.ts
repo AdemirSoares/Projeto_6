@@ -6,6 +6,11 @@ export const Card = styled.div`
   margin-bottom: 48px;
   position: relative;
   border: 1px solid ${cores.rosa};
+
+  .capa {
+    width: 472px;
+    height: 217px;
+  }
 `
 
 export const Titulos = styled.div`
@@ -43,5 +48,4 @@ export const Infos = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
-  font-weight: bold;
 `

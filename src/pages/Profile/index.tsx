@@ -1,6 +1,7 @@
-import ProductsList from '../../components/ProductsList'
+import Banner from '../../components/Banner'
 
-import Hero from '../../components/Hero'
+import Header from '../../components/Header'
+import ProductsListMenu from '../../components/ProductsListMenu'
 import { useEffect, useState } from 'react'
 
 export type Restaurantes = {
@@ -22,21 +23,22 @@ export type Cardapio = {
   porcao: string
 }
 
-const Home = () => {
-  const [restaurantes, setRestaurantes] = useState<Restaurantes[]>([])
+export const Profile = () => {
+  const [cardapio, setCardapio] = useState<Cardapio[]>([])
 
   useEffect(() => {
     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
       .then((res) => res.json())
-      .then((res) => setRestaurantes(res))
+      .then((res) => setCardapio(res))
   }, [])
 
   return (
     <>
-      <Hero />
-      <ProductsList restaurantes={restaurantes} background="pink" />
+      <Header />
+      <Banner />
+      <ProductsListMenu cardapio={cardapio} background="pink" />
     </>
   )
 }
 
-export default Home
+export default Profile

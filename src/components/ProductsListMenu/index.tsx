@@ -1,25 +1,37 @@
-import Stores from '../../models/Stores'
+import { Cardapio } from '../../pages/Home'
 import ProductMenu from '../ProductMenu'
 import { Container, List } from './styles'
 
-type Props = {
+export type Props = {
   background: 'whit' | 'pink'
-  stores: Stores[]
+  cardapio: Cardapio[]
 }
 
-const ProductsListMenu = ({ background, stores }: Props) => (
-  <Container>
-    <List>
-      {stores.map((store) => (
-        <ProductMenu
-          key={store.id}
-          image={store.image}
-          title={store.title}
-          description={store.description}
-        />
-      ))}
-    </List>
-  </Container>
-)
+const ProductsListMenu = ({ background, cardapio }: Props) => {
+  const formataPreco = (preco: number) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
+  return (
+    <Container>
+      <List>
+        {cardapio.map((cardapio) => (
+          <ProductMenu
+            key={cardapio.id}
+            foto={cardapio.foto}
+            preco={cardapio.preco}
+            id={cardapio.id}
+            nome={cardapio.nome}
+            descricao={cardapio.descricao}
+            porcao={cardapio.porcao}
+          />
+        ))}
+      </List>
+    </Container>
+  )
+}
 
 export default ProductsListMenu
