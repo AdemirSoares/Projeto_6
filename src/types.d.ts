@@ -1,6 +1,11 @@
 import { number } from 'yup'
 
 declare type Restaurantes = {
+  nome: ReactNode
+  foto: string | undefined
+  name: string | undefined
+  prices: any
+  priceTotal: any
   id: number
   titulo: string
   destacado: boolean
