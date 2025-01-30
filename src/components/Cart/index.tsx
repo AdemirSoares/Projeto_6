@@ -30,8 +30,8 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
-  const goToPagamento = () => {
-    navigate('/pagamento')
+  const goToPayment = () => {
+    navigate('/payment')
     closeCart()
   }
 
@@ -58,7 +58,7 @@ const Cart = () => {
               <h2>R$ {parseToBrl(getPriceTotal())}</h2>
             </S.PriceTotal>
             <Button
-              onClick={goToPagamento}
+              onClick={goToPayment}
               title="Clique aqui para continuar com a entrega"
               type="button"
             >
