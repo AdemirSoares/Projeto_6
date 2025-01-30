@@ -1,36 +1,30 @@
-import { Cardapio } from '../../pages/Home'
+import { Cardapio, Restaurantes } from '../../types'
 import ProductMenu from '../ProductMenu'
-import { Container, List } from './styles'
+import * as S from './styles'
 
 export type Props = {
   background: 'whit' | 'pink'
-  cardapio: Cardapio[]
+  restaurantes: Restaurantes[Cardapio]
+  // cardapio: Cardapio[]
 }
 
-const ProductsListMenu = ({ background, cardapio }: Props) => {
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
-  }
-
+const ProductsListMenu = ({ restaurantes }: Props) => {
   return (
-    <Container>
-      <List>
-        {cardapio.map((cardapio) => (
+    <S.Container>
+      <S.List>
+        {restaurantes.map((restaurantes) => (
           <ProductMenu
-            key={cardapio.id}
-            foto={cardapio.foto}
-            preco={cardapio.preco}
-            id={cardapio.id}
-            nome={cardapio.nome}
-            descricao={cardapio.descricao}
-            porcao={cardapio.porcao}
+            key={restaurantes.id}
+            foto={restaurantes.foto}
+            preco={restaurantes.preco}
+            id={restaurantes.id}
+            nome={restaurantes.nome}
+            descricao={restaurantes.descricao}
+            porcao={restaurantes.porcao}
           />
         ))}
-      </List>
-    </Container>
+      </S.List>
+    </S.Container>
   )
 }
 

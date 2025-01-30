@@ -1,13 +1,13 @@
-import { Imagem, Italiana, Titulo } from './styles'
+import * as S from './styles'
 import bannerImg from '../../assets/image/imagem_de_fundo.png'
 
 const Banner = () => (
-  <Imagem style={{ backgroundImage: `url(${bannerImg})` }}>
+  <S.Image style={{ backgroundImage: `url(${bannerImg})` }}>
     <div className="container">
-      <Italiana>Italiana</Italiana>
-      <Titulo>La Dolce Vita Trattoria</Titulo>
+      <S.Italiana>Italiana</S.Italiana>
+      <S.Title>La Dolce Vita Trattoria</S.Title>
     </div>
-  </Imagem>
+  </S.Image>
 )
 
 export default Banner

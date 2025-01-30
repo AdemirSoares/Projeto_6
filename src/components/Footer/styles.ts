@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const FooterBar = styled.div`
-  background-color: ${cores.rosaClaro};
+  background-color: ${colors.lightPink};
   width: 1366px;
   height: 298px;
   display: block;
@@ -27,7 +27,7 @@ export const FooterBar = styled.div`
   }
 
   .text {
-    color: ${cores.rosa};
+    color: ${colors.pink};
     margin-top: 80px;
     margin-bottom: 40px;
     text-align: center;

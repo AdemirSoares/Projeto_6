@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeaderBar = styled.header`
   width: 1366px;
@@ -13,11 +13,16 @@ export const HeaderBar = styled.header`
     justify-content: space-between;
   }
 
-  a {
-    color: ${cores.rosa};
+  a,
+  span {
+    color: ${colors.pink};
     font-size: 18px;
     text-decoration: none;
     font-weight: bold;
+  }
+
+  h1 {
+    line-height: 0;
   }
 
   img {
@@ -35,9 +40,10 @@ export const LinkItem = styled.li`
   margin-right: 16px;
 `
 
-export const LinkCart = styled.a`
-  color: ${cores.rosa};
+export const CartButton = styled.span`
+  color: ${colors.pink};
   font-size: 18px;
   text-decoration: none;
   font-weight: bold;
+  cursor: pointer;
 `

@@ -1,5 +1,5 @@
 import Button from '../Button'
-import { Avaliacao, Card, Titulo, Titulos, Text, Infos } from './styles'
+import * as S from './styles'
 import estrela from '../../assets/image/estrela.png'
 import Tag from '../Tag'
 
@@ -21,19 +21,19 @@ const Product = ({ id, titulo, avaliacao, descricao, capa, tipo }: Props) => {
   }
 
   return (
-    <Card>
+    <S.Card>
       <img className="capa" src={capa} alt={titulo} />
-      <Infos>
+      <S.Infos>
         <Tag>{tipo}</Tag>
-      </Infos>
-      <Titulos>
-        <Titulo>{titulo}</Titulo>
-        <Avaliacao>
-          <Titulo>{avaliacao}</Titulo>
+      </S.Infos>
+      <S.Titulos>
+        <S.Titulo>{titulo}</S.Titulo>
+        <S.Avaliacao>
+          <S.Titulo>{avaliacao}</S.Titulo>
           <img src={estrela} />
-        </Avaliacao>
-      </Titulos>
-      <Text>{getDescricao(descricao)}</Text>
+        </S.Avaliacao>
+      </S.Titulos>
+      <S.Text>{getDescricao(descricao)}</S.Text>
       <Button
         type="link"
         to={`/profile/${id}`}
@@ -41,7 +41,7 @@ const Product = ({ id, titulo, avaliacao, descricao, capa, tipo }: Props) => {
       >
         Saiba mais
       </Button>
-    </Card>
+    </S.Card>
   )
 }
 

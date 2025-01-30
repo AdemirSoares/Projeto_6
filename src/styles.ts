@@ -1,10 +1,10 @@
 import styled, { createGlobalStyle } from 'styled-components'
 
-export const cores = {
-  branca: '#fff',
-  rosa: '#E66767',
-  rosaClaro: '#FFEBD9',
-  rosaTransparente: '#FFF8F2'
+export const colors = {
+  white: '#fff',
+  pink: '#E66767',
+  lightPink: '#FFEBD9',
+  transparentPink: '#FFF8F2'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -16,8 +16,8 @@ export const GlobalCss = createGlobalStyle`
 }
 
 body {
-  background-color: ${cores.rosaTransparente};
-  color: ${cores.branca};
+  background-color: ${colors.transparentPink};
+  color: ${colors.white};
 }
 
 .container {

@@ -1,36 +1,36 @@
-import { Restaurantes } from '../../pages/Home'
+import { Restaurantes } from '../../types'
+import Loader from '../Loader'
 import Product from '../Product'
-import { Container, List } from './styles'
+import * as S from './styles'
 
 export type Props = {
   background: 'with' | 'pink'
-  restaurantes: Restaurantes[]
+  restaurantes?: Restaurantes[]
+  isLoading: boolean
 }
 
-const ProductsList = ({ restaurantes }: Props) => {
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
+const ProductsList = ({ restaurantes, isLoading }: Props) => {
+  if (isLoading) {
+    return <Loader />
   }
 
   return (
-    <Container>
-      <List>
-        {restaurantes.map((restaurante) => (
-          <Product
-            key={restaurante.id}
-            id={restaurante.id}
-            titulo={restaurante.titulo}
-            tipo={restaurante.tipo}
-            avaliacao={restaurante.avaliacao}
-            descricao={restaurante.descricao}
-            capa={restaurante.capa}
-          />
-        ))}
-      </List>
-    </Container>
+    <S.Container>
+      <S.List>
+        {restaurantes &&
+          restaurantes.map((restaurante) => (
+            <Product
+              key={restaurante.id}
+              id={restaurante.id}
+              titulo={restaurante.titulo}
+              tipo={restaurante.tipo}
+              avaliacao={restaurante.avaliacao}
+              descricao={restaurante.descricao}
+              capa={restaurante.capa}
+            />
+          ))}
+      </S.List>
+    </S.Container>
   )
 }
 

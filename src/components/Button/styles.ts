@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const ButtonContainer = styled.button`
   display: flex;
@@ -11,9 +11,10 @@ export const ButtonContainer = styled.button`
   width: 82px;
   height: 24px;
   font-size: 14px;
-  background-color: ${cores.rosa};
-  color: ${cores.branca};
+  background-color: ${colors.pink};
+  color: ${colors.white};
   margin-top: 8px;
+  cursor: pointer;
 `
 
 export const ButtonLink = styled(Link)`
@@ -24,8 +25,8 @@ export const ButtonLink = styled(Link)`
   width: 82px;
   height: 24px;
   font-size: 14px;
-  background-color: ${cores.rosa};
-  color: ${cores.rosaClaro};
+  background-color: ${colors.pink};
+  color: ${colors.lightPink};
   margin-top: 16px;
   margin-left: 8px;
   margin-bottom: 8px;

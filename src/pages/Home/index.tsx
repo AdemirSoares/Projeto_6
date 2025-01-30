@@ -1,40 +1,23 @@
 import ProductsList from '../../components/ProductsList'
 
 import Hero from '../../components/Hero'
-import { useEffect, useState } from 'react'
 
-export type Restaurantes = {
-  id: number
-  titulo: string
-  tipo: string
-  avaliacao: number
-  descricao: string
-  capa: string
-  cardapio: []
-}
-
-export type Cardapio = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
+import { useGetRestaurantesQuery } from '../../services/api'
+import { useParams } from 'react-router-dom'
+import { HomeParams } from '../../types'
 
 const Home = () => {
-  const [restaurantes, setRestaurantes] = useState<Restaurantes[]>([])
-
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => setRestaurantes(res))
-  }, [])
+  const { id } = useParams() as HomeParams
+  const { data: restaurantes, isLoading } = useGetRestaurantesQuery(id)
 
   return (
     <>
       <Hero />
-      <ProductsList restaurantes={restaurantes} background="pink" />
+      <ProductsList
+        restaurantes={restaurantes}
+        background="pink"
+        isLoading={isLoading}
+      />
     </>
   )
 }

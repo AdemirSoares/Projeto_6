@@ -1,11 +1,12 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const Card = styled.div`
-  background-color: ${cores.branca};
+  background-color: ${colors.white};
   margin-bottom: 48px;
   position: relative;
-  border: 1px solid ${cores.rosa};
+  border: 1px solid ${colors.pink};
+  height: 100%;
 
   .capa {
     width: 472px;
@@ -35,11 +36,11 @@ export const Avaliacao = styled.div`
 export const Titulo = styled.h3`
   font-weight: bold;
   font-size: 18px;
-  color: ${cores.rosa};
+  color: ${colors.pink};
 `
 
 export const Text = styled.p`
-  color: ${cores.rosa};
+  color: ${colors.pink};
   font-size: 14px;
   margin: 16px 8px;
 `

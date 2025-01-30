@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeroBar = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const HeroBar = styled.div`
   }
 
   h2 {
-    color: ${cores.rosa};
+    color: ${colors.pink};
     font-size: 36px;
     font-weight: bold;
     padding: 138.5px 414px 40px 414px;
