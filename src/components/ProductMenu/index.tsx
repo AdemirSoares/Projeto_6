@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux'
-import ButtonAdicionar from '../ButtonAdicionar'
 import * as S from './styles'
 import { add, open } from '../../store/reducers/cart'
+import Button from '../Button'
 
 type Props = {
   foto: string
@@ -10,9 +10,18 @@ type Props = {
   nome: string
   descricao: string
   porcao: string
+  cardapio: any
 }
 
-const ProductMenu = ({ foto, preco, id, nome, descricao, porcao }: Props) => {
+const ProductMenu = ({
+  cardapio,
+  foto,
+  preco,
+  id,
+  nome,
+  descricao,
+  porcao
+}: Props) => {
   const dispatch = useDispatch()
 
   const addToCart = () => {
@@ -26,14 +35,14 @@ const ProductMenu = ({ foto, preco, id, nome, descricao, porcao }: Props) => {
         <S.Titulo>{nome}</S.Titulo>
       </S.Titulos>
       <S.Text>{descricao}</S.Text>
-      <ButtonAdicionar
+      <Button
         type="link"
         to={`/${id}`}
         title="Clique aqui para conhecer o restaurante"
         onClick={addToCart}
       >
         Adicionar ao carrinho
-      </ButtonAdicionar>
+      </Button>
       <S.Titulo>{preco}</S.Titulo>
       <S.Titulo>{porcao}</S.Titulo>
     </S.Card>

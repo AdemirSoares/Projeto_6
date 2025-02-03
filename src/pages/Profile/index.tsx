@@ -4,21 +4,28 @@ import Banner from '../../components/Banner'
 import Header from '../../components/Header'
 import ProductsListMenu from '../../components/ProductsListMenu'
 
-// import { useGetCardapioQuery } from '../../services/api'
 import Loader from '../../components/Loader'
-import { useGetRestaurantesQuery } from '../../services/api'
-import { ProfileParams } from '../../types'
+import { useGetRestaurantesSelectedQuery } from '../../services/api'
 
 export const Profile = () => {
-  const { id } = useParams() as ProfileParams
-  const { data: restaurantes } = useGetRestaurantesQuery(id)
+  const { id } = useParams()
+  const {
+    data: restaurante,
+    error,
+    isLoading
+  } = useGetRestaurantesSelectedQuery(id!)
 
-  if (restaurantes) {
+  if (isLoading) return <p>Carregando...</p>
+  if (error) return <p>Erro ao carregar os dados.</p>
+  if (!restaurante || !restaurante.cardapio)
+    return <p>Restaurante não encontrado.</p>
+
+  if (restaurante) {
     return (
       <>
         <Header />
         <Banner />
-        <ProductsListMenu restaurantes={restaurantes} background="pink" />
+        <ProductsListMenu restaurante={restaurante} background="pink" />
       </>
     )
   }

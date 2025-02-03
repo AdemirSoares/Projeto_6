@@ -2,19 +2,19 @@ import ProductsList from '../../components/ProductsList'
 
 import Hero from '../../components/Hero'
 
-import { useGetRestaurantesQuery } from '../../services/api'
+import { useGetRestaurantesSelectedQuery } from '../../services/api'
 import { useParams } from 'react-router-dom'
 import { HomeParams } from '../../types'
 
 const Home = () => {
   const { id } = useParams() as HomeParams
-  const { data: restaurantes, isLoading } = useGetRestaurantesQuery(id)
+  const { data: restaurante, isLoading } = useGetRestaurantesSelectedQuery(id!)
 
   return (
     <>
       <Hero />
       <ProductsList
-        restaurantes={restaurantes}
+        restaurante={restaurante}
         background="pink"
         isLoading={isLoading}
       />

@@ -1,26 +1,26 @@
-import { Cardapio, Restaurantes } from '../../types'
+import { Restaurantes } from '../../types'
 import ProductMenu from '../ProductMenu'
 import * as S from './styles'
 
 export type Props = {
   background: 'whit' | 'pink'
-  restaurantes: Restaurantes[Cardapio]
-  // cardapio: Cardapio[]
+  restaurante: Restaurantes
 }
 
-const ProductsListMenu = ({ restaurantes }: Props) => {
+const ProductsListMenu = ({ restaurante }: Props) => {
   return (
     <S.Container>
       <S.List>
-        {restaurantes.map((restaurantes) => (
+        {restaurante.cardapio.map((produto) => (
           <ProductMenu
-            key={restaurantes.id}
-            foto={restaurantes.foto}
-            preco={restaurantes.preco}
-            id={restaurantes.id}
-            nome={restaurantes.nome}
-            descricao={restaurantes.descricao}
-            porcao={restaurantes.porcao}
+            key={produto.id}
+            foto={produto.foto}
+            preco={produto.preco}
+            id={produto.id}
+            nome={produto.nome}
+            descricao={produto.descricao}
+            porcao={produto.porcao}
+            cardapio={produto}
           />
         ))}
       </S.List>

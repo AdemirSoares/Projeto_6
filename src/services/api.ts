@@ -52,7 +52,7 @@ const api = createApi({
 })
 
 export const {
-  useGetRestaurantesQuery,
+  useGetRestaurantesSelectedQuery,
   useGetCheckoutQuery,
   // useGetCardapioQuery,
   usePurchaseMutation

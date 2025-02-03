@@ -5,11 +5,11 @@ import * as S from './styles'
 
 export type Props = {
   background: 'with' | 'pink'
-  restaurantes?: Restaurantes[]
+  restaurante: Restaurantes[]
   isLoading: boolean
 }
 
-const ProductsList = ({ restaurantes, isLoading }: Props) => {
+const ProductsList = ({ restaurante, isLoading }: Props) => {
   if (isLoading) {
     return <Loader />
   }
@@ -17,16 +17,16 @@ const ProductsList = ({ restaurantes, isLoading }: Props) => {
   return (
     <S.Container>
       <S.List>
-        {restaurantes &&
-          restaurantes.map((restaurante) => (
+        {restaurante &&
+          restaurante.map((produto) => (
             <Product
-              key={restaurante.id}
-              id={restaurante.id}
-              titulo={restaurante.titulo}
-              tipo={restaurante.tipo}
-              avaliacao={restaurante.avaliacao}
-              descricao={restaurante.descricao}
-              capa={restaurante.capa}
+              key={produto.id}
+              id={produto.id}
+              titulo={produto.titulo}
+              tipo={produto.tipo}
+              avaliacao={produto.avaliacao}
+              descricao={produto.descricao}
+              capa={produto.capa}
             />
           ))}
       </S.List>
