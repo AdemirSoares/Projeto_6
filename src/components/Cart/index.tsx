@@ -30,8 +30,8 @@ const Cart = () => {
     dispatch(remove(id))
   }
 
-  const goToPayment = () => {
-    navigate('/payment')
+  const goToCheckout = () => {
+    navigate('/checkout')
     closeCart()
   }
 
@@ -42,14 +42,14 @@ const Cart = () => {
         {items.length > 0 ? (
           <>
             <ul>
-              {items.map((item) => (
-                <S.CartItem key={item.id}>
-                  <img src={item.foto} alt={item.name} />
+              {items.map((items) => (
+                <S.CartItem key={items.id}>
+                  <img src={items.foto} alt={items.name} />
                   <div>
-                    <h3>{item.nome}</h3>
-                    <span>{parseToBrl(item.prices.current)}</span>
+                    <h3>{items.nome}</h3>
+                    <span>{parseToBrl(items.prices.current)}</span>
                   </div>
-                  <button type="button" />
+                  <button onClick={() => removeItem(items.id)} type="button" />
                 </S.CartItem>
               ))}
             </ul>
@@ -58,7 +58,7 @@ const Cart = () => {
               <h2>R$ {parseToBrl(getPriceTotal())}</h2>
             </S.PriceTotal>
             <Button
-              onClick={goToPayment}
+              onClick={goToCheckout}
               title="Clique aqui para continuar com a entrega"
               type="button"
             >

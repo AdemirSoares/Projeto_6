@@ -13,6 +13,7 @@ declare type Restaurantes = {
   avaliacao: number
   descricao: string
   capa: string
+  restaurante: string
   cardapio: [
     {
       foto: string

@@ -11,36 +11,86 @@ import InputMask from 'react-input-mask'
 import { clear } from '../../store/reducers/cart'
 import { useEffect } from 'react'
 
-const Payment = () => {
-  const [puschase, { data, isSuccess, isLoading }] = usePurchaseMutation()
+const Checkout = () => {
+  const [purschase, { data, isSuccess, isLoading }] = usePurchaseMutation()
   const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
   const form = useFormik({
     initialValues: {
       fullName: '',
+      description: '',
+      city: '',
+      zipCode: '',
+      number: '',
+      complement: '',
+      cardName: '',
       cardNumber: '',
       cardCode: '',
       expiresMonth: '',
       expiresYear: ''
     },
+    validationSchema: Yup.object({
+      fullName: Yup.string()
+        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      description: Yup.string()
+        .min(5, 'O endereço precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      city: Yup.string()
+        .min(5, 'A cidade precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      zipCode: Yup.string()
+        .min(10, 'A cidade precisa ter pelo menos 5 caracteres')
+        .max(10, 'A cidade precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      cardName: Yup.string()
+        .min(5, 'O nome precisa ter pelo menos 5 caracteres')
+        .required('O campo é obrigatório'),
+      cardNumber: Yup.string()
+        .min(23, 'O número precisa ter pelo menos 23 caracteres')
+        .required('O campo é obrigatório'),
+      cardCode: Yup.string()
+        .min(3, 'O código precisa ter pelo menos 3 caracteres')
+        .required('O campo é obrigatório'),
+      expiresMonth: Yup.string()
+        .min(2, 'O data precisa ter pelo menos 2 caracteres')
+        .required('O campo é obrigatório'),
+      expiresYear: Yup.string()
+        .min(2, 'O ano precisa ter pelo menos 2 caracteres')
+        .required('O campo é obrigatório')
+    }),
     onSubmit: (values) => {
-      usePurchaseMutation({
-        products: items.map((item) => ({
-          id: item.id,
-          price: item.prices.current as number
-        })),
+      purschase({
+        delivery: {
+          receiver: values.fullName,
+          address: {
+            description: values.description,
+            city: values.city,
+            zipCode: values.zipCode,
+            number: values.number,
+            complement: values.complement
+          }
+        },
         payment: {
           card: {
-            name: values.fullName,
+            name: values.cardName,
             number: values.cardNumber,
-            code: Number(values.cardCode),
+            code: values.cardCode,
             expires: {
-              month: Number(values.expiresMonth),
-              year: Number(values.expiresYear)
+              month: 1,
+              year: 2025
             }
           }
-        }
+        },
+        products [
+          {
+            id: 1,
+            price: 10
+          }
+        ]
+      })
+    }
   })
 
   const checkInputHasError = (fieldName: string) => {
@@ -91,15 +141,15 @@ const Payment = () => {
           <Card title="Pagamento - Valor a pagar R$ 190,90">
             <S.Row marginTop="16px">
               <S.InputGroup maxWidth="344px">
-                <label htmlFor="fullName">Nome no cartão</label>
+                <label htmlFor="cardName">Nome no cartão</label>
                 <input
-                  id="fullName"
+                  id="cardName"
                   type="text"
-                  name="fullName"
-                  value={form.values.fullName}
+                  name="cardName"
+                  value={form.values.cardName}
                   onChange={form.handleChange}
                   onBlur={form.handleBlur}
-                  className={checkInputHasError('fullName') ? 'error' : ''}
+                  className={checkInputHasError('cardName') ? 'error' : ''}
                 />
               </S.InputGroup>
               <S.InputGroup maxWidth="228px">
@@ -176,4 +226,4 @@ const Payment = () => {
   )
 }
 
-export default Payment
+export default Checkout
