@@ -1,11 +1,9 @@
-import { number } from 'yup'
-
 declare type Restaurantes = {
-  nome: ReactNode
+  nome: string
   foto: string | undefined
   name: string | undefined
-  prices: any
-  priceTotal: any
+  prices: number
+  priceTotal: number
   id: number
   titulo: string
   destacado: boolean
@@ -13,7 +11,6 @@ declare type Restaurantes = {
   avaliacao: number
   descricao: string
   capa: string
-  restaurante: string
   cardapio: [
     {
       foto: string

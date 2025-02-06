@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Restaurantes } from '../../types'
 
 type CartState = {
   items: Restaurantes[]

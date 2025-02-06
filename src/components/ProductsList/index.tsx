@@ -1,11 +1,10 @@
-import { Restaurantes } from '../../types'
 import Loader from '../Loader'
 import Product from '../Product'
 import * as S from './styles'
 
 export type Props = {
   background: 'with' | 'pink'
-  restaurante: Restaurantes[]
+  restaurante?: Restaurantes[]
   isLoading: boolean
 }
 
