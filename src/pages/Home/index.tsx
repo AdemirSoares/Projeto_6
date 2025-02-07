@@ -14,7 +14,7 @@ const Home = () => {
     <>
       <Hero />
       <ProductsList
-        restaurante={restaurante}
+        restaurantes={restaurante}
         background="pink"
         isLoading={isLoading}
       />
