@@ -3,7 +3,6 @@ import { colors } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.white};
-  margin-bottom: 48px;
   position: relative;
   border: 1px solid ${colors.pink};
   height: 100%;

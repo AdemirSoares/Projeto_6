@@ -2,13 +2,22 @@ import ProductsList from '../../components/ProductsList'
 
 import Hero from '../../components/Hero'
 
-import { useGetRestaurantesSelectedQuery } from '../../services/api'
+import { useGetRestaurantesQuery } from '../../services/api'
 import { useParams } from 'react-router-dom'
+import Loader from '../../components/Loader'
+
+// type HomeParams = {
+//   id: string
+// }
 
 const Home = () => {
   const { id } = useParams() as HomeParams
 
-  const { data: restaurante, isLoading } = useGetRestaurantesSelectedQuery(id!)
+  const { data: restaurante, isLoading } = useGetRestaurantesQuery(id)
+
+  if (!restaurante) {
+    return <Loader />
+  }
 
   return (
     <>

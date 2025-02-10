@@ -4,7 +4,7 @@ import * as S from './styles'
 
 export type Props = {
   background: 'with' | 'pink'
-  restaurante?: Restaurantes[]
+  restaurante: Restaurantes[]
   isLoading: boolean
 }
 
