@@ -1,36 +1,40 @@
-// import { useParams } from 'react-router-dom'
-// import Banner from '../../components/Banner'
+import { useParams } from 'react-router-dom'
+import Banner from '../../components/Banner'
 
-// import Header from '../../components/Header'
-// import ProductsListMenu from '../../components/ProductsListMenu'
+import Header from '../../components/Header'
 
-// import Loader from '../../components/Loader'
-// import { useGetRestaurantesSelectedQuery } from '../../services/api'
+import Loader from '../../components/Loader'
+import { useGetRestaurantesSelectedQuery } from '../../services/api'
+import ProductsListMenu from '../../components/ProductsListMenu'
 
-// export const Profile = () => {
-//   const { id } = useParams()
-//   const {
-//     data: restaurante,
-//     error,
-//     isLoading
-//   } = useGetRestaurantesSelectedQuery(id!)
+type ProfileParams = {
+  id: string
+}
 
-//   if (isLoading) return <p>Carregando...</p>
-//   if (error) return <p>Erro ao carregar os dados.</p>
-//   if (!restaurante || !restaurante.cardapio)
-//     return <p>Restaurante não encontrado.</p>
+export const Profile = () => {
+  const { id } = useParams() as ProfileParams
+  const {
+    data: restaurante,
+    error,
+    isLoading
+  } = useGetRestaurantesSelectedQuery(id)
 
-//   if (restaurante) {
-//     return (
-//       <>
-//         <Header />
-//         <Banner />
-//         <ProductsListMenu restaurante={restaurante} background="pink" />
-//       </>
-//     )
-//   }
+  if (isLoading) return <p>Carregando...</p>
+  if (error) return <p>Erro ao carregar os dados.</p>
+  if (!restaurante || !restaurante.cardapio)
+    return <p>Restaurante não encontrado.</p>
 
-//   return <Loader />
-// }
+  if (restaurante) {
+    return (
+      <>
+        <Header />
+        <Banner />
+        <ProductsListMenu restaurante={restaurante} background="pink" />
+      </>
+    )
+  }
 
-// export default Profile
+  return <Loader />
+}
+
+export default Profile
