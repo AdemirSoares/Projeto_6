@@ -40,17 +40,11 @@ const api = createApi({
   }),
   endpoints: (builder) => ({
     getRestaurantesSelected: builder.query<Restaurantes, string>({
-      query: (id) => `restaurantes/cardapio/${id}`
+      query: (id) => `restaurantes/${id}`
     }),
     getRestaurantes: builder.query<Restaurantes[], void>({
       query: () => 'restaurantes'
     }),
-    // getCheckoutSelected: builder.query<Checkout, string>({
-    //   query: (id) => `checkout/${id}`
-    // }),
-    // getCheckout: builder.query<Checkout[], void>({
-    //   query: () => 'checkout'
-    // }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
         url: 'checkout',
@@ -64,8 +58,6 @@ const api = createApi({
 export const {
   useGetRestaurantesSelectedQuery,
   useGetRestaurantesQuery,
-  // useGetCheckoutQuery,
-  // useGetCardapioQuery,
   usePurchaseMutation
 } = api
 

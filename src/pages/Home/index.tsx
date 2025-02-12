@@ -6,10 +6,6 @@ import { useGetRestaurantesQuery } from '../../services/api'
 import { useParams } from 'react-router-dom'
 import Loader from '../../components/Loader'
 
-// type HomeParams = {
-//   id: string
-// }
-
 const Home = () => {
   const { id } = useParams() as HomeParams
 
