@@ -3,18 +3,23 @@ import { Link } from 'react-router-dom'
 
 import { colors } from '../../styles'
 
-export const ButtonContainer = styled.button`
+type Props = {
+  size?: 'big' | 'small'
+}
+
+export const ButtonContainer = styled.button<Props>`
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  width: 82px;
+  width: ${(props) => (props.size === 'big' ? '304px' : '218px')};
   height: 24px;
   font-size: 14px;
-  background-color: ${colors.pink};
-  color: ${colors.white};
+  background-color: ${colors.white};
+  color: ${colors.pink};
   margin-top: 8px;
   cursor: pointer;
+  border: none;
 `
 
 export const ButtonLink = styled(Link)`

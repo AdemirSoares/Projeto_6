@@ -1,5 +1,4 @@
 declare type Restaurantes = {
-  nome: string
   foto: string | undefined
   name: string | undefined
   prices: number
@@ -15,6 +14,7 @@ declare type Restaurantes = {
 }
 
 declare type Cardapio = {
+  cardapio: Restaurantes
   foto: string
   preco: number
   id: number

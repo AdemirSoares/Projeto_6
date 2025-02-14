@@ -59,43 +59,43 @@
 //   }
 // `
 
-// export const CartItem = styled.li`
-//   display: flex;
-//   margin-bottom: 16px;
-//   position: relative;
+export const CartItem = styled.li`
+  display: flex;
+  margin-bottom: 16px;
+  position: relative;
 
-//   img {
-//     height: 80px;
-//     width: 80px;
-//     object-fit: cover;
-//     margin-right: 8px;
-//   }
+  img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    margin-right: 8px;
+  }
 
-//   h3 {
-//     color: ${colors.pink};
-//     font-weight: bold;
-//     font-size: 18px;
-//     margin-bottom: 16px;
-//   }
+  h3 {
+    color: ${colors.pink};
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
 
-//   span {
-//     display: block;
-//     color: ${colors.pink};
-//     font-weight: 400;
-//     font-size: 14px;
-//   }
+  span {
+    display: block;
+    color: ${colors.pink};
+    font-weight: 400;
+    font-size: 14px;
+  }
 
-//   div {
-//   }
+  div {
+  }
 
-//   button {
-//     background-image: url(${lixeira});
-//     width: 16px;
-//     height: 16px;
-//     border: none;
-//     background-color: transparent;
-//     position: absolute;
-//     top: 0;
-//     right: 0;
-//   }
-// `
+  button {
+    background-image: url(${lixeira});
+    width: 16px;
+    height: 16px;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+`

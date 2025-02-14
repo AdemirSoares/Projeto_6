@@ -1,18 +1,28 @@
 import * as S from './styles'
 
-type Props = {
+export type Props = {
   type: 'button' | 'link'
   title: string
   to?: string
   onClick?: () => void
+  size?: 'small' | 'big'
   children: string
   disabled?: boolean
 }
 
-const Button = ({ type, title, to, onClick, children, disabled }: Props) => {
+const Button = ({
+  type,
+  size = 'small',
+  title,
+  to,
+  onClick,
+  children,
+  disabled
+}: Props) => {
   if (type === 'button') {
     return (
       <S.ButtonContainer
+        size={size}
         type="button"
         title={title}
         onClick={onClick}

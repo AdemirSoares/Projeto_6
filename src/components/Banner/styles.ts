@@ -7,6 +7,9 @@ export const Image = styled.div`
   top: 162px;
   gap: 0px;
   opacity: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `
 
 export const Title = styled.h2`

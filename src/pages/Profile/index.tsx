@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom'
-import Banner from '../../components/Banner'
 
 import Header from '../../components/Header'
 
 import Loader from '../../components/Loader'
 import { useGetRestaurantesSelectedQuery } from '../../services/api'
 import ProductsListMenu from '../../components/ProductsListMenu'
+import BannerList from '../../components/BannerList'
+import Modal from '../../components/Modal'
 
 export const Profile = () => {
   const { id } = useParams() as ProfileParams
@@ -15,8 +16,9 @@ export const Profile = () => {
     return (
       <>
         <Header />
-        <Banner />
+        <BannerList restaurante={restaurante} />
         <ProductsListMenu restaurante={restaurante} background="pink" />
+        <Modal />
       </>
     )
   }

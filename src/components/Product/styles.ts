@@ -5,6 +5,7 @@ export const Card = styled.div`
   background-color: ${colors.white};
   position: relative;
   border: 1px solid ${colors.pink};
+  margin-bottom: 32px;
   height: 100%;
 
   .capa {
@@ -14,8 +15,6 @@ export const Card = styled.div`
 `
 
 export const Titulos = styled.div`
-  width: 472px;
-  hegth: 217px;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,13 +1,20 @@
 import * as S from './styles'
-import bannerImg from '../../assets/image/imagem_de_fundo.png'
 
-const Banner = () => (
-  <S.Image style={{ backgroundImage: `url(${bannerImg})` }}>
-    <div className="container">
-      <S.Italiana>Italiana</S.Italiana>
-      <S.Title>La Dolce Vita Trattoria</S.Title>
-    </div>
-  </S.Image>
-)
+type Props = {
+  tipo: string
+  titulo: string
+  capa: string
+}
+
+const Banner = ({ tipo, titulo, capa }: Props) => {
+  return (
+    <S.Image style={{ backgroundImage: `url(${capa})` }}>
+      <div className="container">
+        <S.Italiana>{tipo}</S.Italiana>
+        <S.Title>{titulo}</S.Title>
+      </div>
+    </S.Image>
+  )
+}
 
 export default Banner

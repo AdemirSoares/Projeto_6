@@ -10,18 +10,10 @@ type Props = {
   nome: string
   descricao: string
   porcao: string
-  cardapio: any
+  cardapio: Restaurantes
 }
 
-const ProductMenu = ({
-  cardapio,
-  foto,
-  preco,
-  id,
-  nome,
-  descricao,
-  porcao
-}: Props) => {
+const ProductMenu = ({ cardapio, foto, id, nome, descricao }: Props) => {
   const dispatch = useDispatch()
 
   const addToCart = () => {
@@ -36,15 +28,13 @@ const ProductMenu = ({
       </S.Titulos>
       <S.Text>{descricao}</S.Text>
       <Button
-        type="link"
-        to={`/${id}`}
+        size="big"
+        type="button"
+        to={`/profile/${id}`}
         title="Clique aqui para conhecer o restaurante"
-        onClick={addToCart}
       >
         Adicionar ao carrinho
       </Button>
-      <S.Titulo>{preco}</S.Titulo>
-      <S.Titulo>{porcao}</S.Titulo>
     </S.Card>
   )
 }

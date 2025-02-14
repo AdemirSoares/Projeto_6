@@ -42,14 +42,14 @@
 //         {items.length > 0 ? (
 //           <>
 //             <ul>
-//               {items.map((items) => (
-//                 <S.CartItem key={items.id}>
-//                   <img src={items.foto} alt={items.name} />
+//               {items.map((item) => (
+//                 <S.CartItem key={item.id}>
+//                   <img src={item.foto} alt={item.nome} />
 //                   <div>
-//                     <h3>{items.nome}</h3>
-//                     <span>{parseToBrl(items.prices.current)}</span>
+//                     <h3>{item.nome}</h3>
+//                     <span>{parseToBrl(item.prices.current)}</span>
 //                   </div>
-//                   <button onClick={() => removeItem(items.id)} type="button" />
+//                   <button onClick={() => removeItem(item.id)} type="button" />
 //                 </S.CartItem>
 //               ))}
 //             </ul>
