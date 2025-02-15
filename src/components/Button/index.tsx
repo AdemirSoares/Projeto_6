@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import * as S from './styles'
 
 export type Props = {
@@ -6,7 +7,7 @@ export type Props = {
   to?: string
   onClick?: () => void
   size?: 'small' | 'big'
-  children: string
+  children: ReactNode
   disabled?: boolean
 }
 

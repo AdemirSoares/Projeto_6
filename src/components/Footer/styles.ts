@@ -8,7 +8,6 @@ export const FooterBar = styled.div`
   display: block;
   alingn-items: center;
   justify-content: center;
-  margin-top: 50px;
 
   .logo {
     padding-top: 40px;

@@ -1,4 +1,4 @@
-import ProductsList from '../../components/ProductsList'
+import RestaurantsList from '../../components/RestaurantsList'
 
 import Hero from '../../components/Hero'
 
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <ProductsList
+      <RestaurantsList
         restaurante={restaurante}
         background="pink"
         isLoading={isLoading}

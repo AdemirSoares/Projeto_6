@@ -1,4 +1,4 @@
-import ProductMenu from '../ProductMenu'
+import Menu from '../Menu'
 import * as S from './styles'
 
 export type Props = {
@@ -6,12 +6,12 @@ export type Props = {
   restaurante: Restaurantes
 }
 
-const ProductsListMenu = ({ restaurante }: Props) => {
+const MenuList = ({ restaurante }: Props) => {
   return (
     <S.Container>
       <S.List>
         {restaurante.cardapio.map((produto) => (
-          <ProductMenu
+          <Menu
             key={produto.id}
             foto={produto.foto}
             preco={produto.preco}
@@ -19,7 +19,7 @@ const ProductsListMenu = ({ restaurante }: Props) => {
             nome={produto.nome}
             descricao={produto.descricao}
             porcao={produto.porcao}
-            cardapio={produto.cardapio}
+            restaurante={restaurante}
           />
         ))}
       </S.List>
@@ -27,4 +27,4 @@ const ProductsListMenu = ({ restaurante }: Props) => {
   )
 }
 
-export default ProductsListMenu
+export default MenuList

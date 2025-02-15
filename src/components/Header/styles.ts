@@ -40,7 +40,7 @@ export const LinkItem = styled.li`
   margin-right: 16px;
 `
 
-export const CartButton = styled.span`
+export const CartButton = styled.a`
   color: ${colors.pink};
   font-size: 18px;
   text-decoration: none;

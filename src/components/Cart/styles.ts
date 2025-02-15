@@ -1,63 +1,63 @@
-// import styled from 'styled-components'
-// import { colors } from '../../styles'
-// import { ButtonContainer } from '../Button/styles'
+import styled from 'styled-components'
+import { colors } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
 
-// import lixeira from '../../assets/image/lixeira.png'
+import lixeira from '../../assets/image/lixeira.png'
 
-// export const Overlay = styled.div`
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: #000;
-//   opacity: 0.7;
-// `
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.7;
+`
 
-// export const CartContainer = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   display: none;
-//   justify-content: flex-end;
-//   z-index: 1;
+export const CartModal = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
 
-//   &.is-open {
-//     display: flex;
-//   }
-// `
+  &.is-open {
+    display: flex;
+    z-index: 1;
+  }
+`
 
-// export const Sidebar = styled.aside`
-//   background-color: ${colors.pink};
-//   z-index: 1;
-//   padding: 32px 8px 0 8px;
-//   max-width: 360px;
-//   width: 100%;
+export const Sidebar = styled.aside`
+  background-color: ${colors.pink};
+  z-index: 1;
+  padding: 32px 8px 0 8px;
+  max-width: 360px;
+  width: 100%;
 
-//   ${ButtonContainer} {
-//     max-width: 100%;
-//     width: 100%;
-//   }
+  ${ButtonContainer} {
+    max-width: 100%;
+    width: 100%;
+  }
 
-//   .empty-text {
-//     font-size: 14px;
-//     line-height: 22px;
-//     color: ${colors.pink};
-//     text-align: center;
-//   }
-// `
+  .empty-text {
+    font-size: 14px;
+    line-height: 22px;
+    color: ${colors.pink};
+    text-align: center;
+  }
+`
 
-// export const PriceTotal = styled.div`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
+export const PriceTotal = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-//   h2 {
-//     color: ${colors.lightPink};
-//   }
-// `
+  h2 {
+    color: ${colors.lightPink};
+  }
+`
 
 export const CartItem = styled.li`
   display: flex;

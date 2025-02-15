@@ -30,7 +30,7 @@ const Header = () => {
         <h1>
           <img src={logo} alt="efood" />
         </h1>
-        <S.CartButton role="button" onClick={openCart}>
+        <S.CartButton onClick={openCart}>
           {items.length} produto(s) no carrinho
         </S.CartButton>
       </div>

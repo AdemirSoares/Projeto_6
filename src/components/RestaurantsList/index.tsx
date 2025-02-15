@@ -1,5 +1,5 @@
 import Loader from '../Loader'
-import Product from '../Product'
+import Restaurants from '../Restaurants'
 import * as S from './styles'
 
 export type Props = {
@@ -8,7 +8,7 @@ export type Props = {
   isLoading: boolean
 }
 
-const ProductsList = ({ restaurante, isLoading }: Props) => {
+const RestaurantsList = ({ restaurante, isLoading }: Props) => {
   if (isLoading) {
     return <Loader />
   }
@@ -18,7 +18,7 @@ const ProductsList = ({ restaurante, isLoading }: Props) => {
       <S.List>
         {restaurante &&
           restaurante.map((produto) => (
-            <Product
+            <Restaurants
               key={produto.id}
               id={produto.id}
               titulo={produto.titulo}
@@ -33,4 +33,4 @@ const ProductsList = ({ restaurante, isLoading }: Props) => {
   )
 }
 
-export default ProductsList
+export default RestaurantsList
