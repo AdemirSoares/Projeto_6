@@ -57,30 +57,16 @@ export const ConfirmedModal = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  display: none;
+  display: flex;
   justify-content: flex-end;
 
   &.show {
-    display: block;
+    display: flex;
     z-index: 1;
   }
 
   .buttomContainer {
     margin-top: 24px;
-  }
-
-  p {
-    font-size: 14px;
-    font-weight: 400;
-
-    line-height: 22px;
-  }
-
-  h2 {
-    font-size: 16px;
-    font-weight: 700;
-    line-height: 18.75px;
-    margin-bottom: 8px;
   }
 `
 
@@ -97,6 +83,19 @@ export const Sidebar = styled.aside`
     color: ${colors.lightPink};
     margin-bottom: 16px;
     font-weight: bold;
+  }
+
+  h2 {
+    color: ${colors.lightPink};
+    font-size: 16px;
+    margin-bottom: 16px;
+    weight: 700;
+  }
+
+  p {
+    color: ${colors.lightPink};
+    font-size: 14px;
+    weight: 400;
   }
 
   ${ButtonContainer} {

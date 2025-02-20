@@ -58,6 +58,7 @@ export const PriceTotal = styled.div`
 
   h2 {
     color: ${colors.lightPink};
+    font-size: 14px;
   }
 `
 

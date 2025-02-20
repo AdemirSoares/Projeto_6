@@ -15,18 +15,19 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import Button from '../Button'
-import Card from '../Card'
 import InputMask from 'react-input-mask'
+import { getTotalPrice, parseToBrl } from '../../utils'
 
 type Props = {
   checkoutStart?: boolean
   priceTotal: number
 }
 
-const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
-  const [purchase, { isSuccess, data }] = usePurchaseMutation()
+const Checkout = ({ checkoutStart = false }: Props) => {
+  const [purchase, { isLoading, isError, data, isSuccess }] =
+    usePurchaseMutation()
 
-  const { isOpenPayment, isConfirmed } = useSelector(
+  const { items, isOpenPayment, isConfirmed } = useSelector(
     (state: RootReducer) => state.cart
   )
 
@@ -165,14 +166,6 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
     }
   })
 
-  // const getErrorMessage = (fieldName: string, message?: string) => {
-  //   const isTouched = fieldName in form.touched
-  //   const isInvalid = fieldName in form.errors
-
-  //   if (isTouched && isInvalid) return message
-  //   return ''
-  // }
-
   const checkoutInputHasError = (fieldName: string) => {
     const isTouched = fieldName in form.touched
     const isInvalid = fieldName in form.errors
@@ -183,9 +176,10 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
 
   return (
     <div className="container">
-      {isSuccess ? (
-        <Card title={`Pedido realizado - ${data?.orderId}`}>
-          <>
+      {isSuccess && data ? (
+        <S.ConfirmedModal>
+          <S.Sidebar>
+            <h2>Pedido realizado - {data.orderId}</h2>
             <p>
               Estamos felizes em informar que seu pedido já está em processo de
               preparação e, em breve, será entregue no endereço fornecido.
@@ -208,23 +202,23 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
             </p>
             <div className="buttomContainer">
               <Button
-                type="submit"
+                type="button"
                 onClick={finish}
                 title="Clique aqui para concluir o pedido"
               >
                 Concluir
               </Button>
             </div>
-          </>
-        </Card>
+          </S.Sidebar>
+        </S.ConfirmedModal>
       ) : (
         <form onSubmit={form.handleSubmit} className="container">
           <S.DeliveryModal className={checkoutStart ? 'show' : ''}>
             <S.Overlay onClick={closeDelivery} />
             <S.Sidebar>
-              <h2 className="entrega">Entrega</h2>
               <S.Row>
                 <S.InputGroup maxWidth="344px">
+                  <h2>Entrega</h2>
                   <label htmlFor="fullName">Quem irá receber</label>
                   <input
                     id="fullName"
@@ -305,6 +299,7 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
                     }
                   />
                 </S.InputGroup>
+                <br />
                 <Button
                   onClick={activePayment}
                   type="button"
@@ -325,7 +320,9 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
           <S.PaymentModal className={isOpenPayment ? 'show' : ''}>
             <S.Overlay />
             <S.Sidebar>
-              <p className="titulo">Pagamento - Valor a pagar</p>
+              <p className="titulo">
+                {`Pagamento - Valor a pagar ${parseToBrl(getTotalPrice(items))}`}
+              </p>
               <S.Row>
                 <S.InputGroup maxWidth="344px">
                   <label htmlFor="cardName">Nome no cartão</label>
@@ -407,17 +404,19 @@ const Checkout = ({ checkoutStart = false, priceTotal = 0 }: Props) => {
                     />
                   </S.InputGroup>
                 </div>
+                <br />
                 <Button
-                  onClick={activeConfirmed}
-                  type="button"
+                  onClick={form.handleSubmit}
+                  type="submit"
                   title="Clique aqui para finalizar pagamento"
                 >
-                  Finalizar pagamento
+                  {isLoading ? 'Finalizando pagamento...' : 'Finalizar compra'}
                 </Button>
                 <Button
                   onClick={backAdress}
                   type="button"
                   title="Clique aqui para voltar para o carrinho"
+                  disabled={isLoading}
                 >
                   Voltar para a edição de endereço
                 </Button>
