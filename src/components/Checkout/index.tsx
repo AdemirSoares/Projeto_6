@@ -135,6 +135,12 @@ const Checkout = ({ checkoutStart = false }: Props) => {
     }),
     onSubmit: (values) => {
       purchase({
+        products: [
+          {
+            id: 1,
+            price: 0
+          }
+        ],
         delivery: {
           receiver: values.fullName,
           address: {
@@ -143,25 +149,19 @@ const Checkout = ({ checkoutStart = false }: Props) => {
             zipCode: values.zipCode,
             number: Number(values.number),
             complement: values.complement
-          }
-        },
-        payment: {
-          card: {
-            name: values.cardName,
-            number: values.cardNumber,
-            code: values.cardCode,
-            expires: {
-              month: Number(values.expiresMonth),
-              year: Number(values.expiresYear)
+          },
+          payment: {
+            card: {
+              name: values.cardName,
+              number: Number(values.cardNumber),
+              code: Number(values.cardCode),
+              expires: {
+                month: Number(values.expiresMonth),
+                year: Number(values.expiresYear)
+              }
             }
           }
-        },
-        products: [
-          {
-            id: 1,
-            price: 0
-          }
-        ]
+        }
       })
     }
   })
