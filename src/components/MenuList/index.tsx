@@ -19,7 +19,7 @@ const MenuList = ({ restaurante }: Props) => {
             nome={produto.nome}
             descricao={produto.descricao}
             porcao={produto.porcao}
-            restaurante={restaurante}
+            cardapio={produto}
           />
         ))}
       </S.List>

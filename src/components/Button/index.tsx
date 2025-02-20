@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import * as S from './styles'
 
 export type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'submit'
   title: string
   to?: string
   onClick?: () => void
@@ -20,11 +20,11 @@ const Button = ({
   children,
   disabled
 }: Props) => {
-  if (type === 'button') {
+  if (type === 'button' || type === 'submit') {
     return (
       <S.ButtonContainer
         size={size}
-        type="button"
+        type={type}
         title={title}
         onClick={onClick}
         disabled={disabled}

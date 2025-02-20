@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
 
 type Props = {
-  restaurante: Restaurantes
+  cardapio: Cardapio
   id: number
   foto: string
   nome: string
@@ -16,7 +16,7 @@ type Props = {
 }
 
 const Menu = ({
-  restaurante,
+  cardapio,
   id,
   foto,
   nome,
@@ -27,8 +27,9 @@ const Menu = ({
   const dispatch = useDispatch()
 
   const addToCart = () => {
-    dispatch(add(restaurante))
+    dispatch(add(cardapio))
     dispatch(open())
+    setModalEstaAberto(false)
   }
   const [modalEstaAberto, setModalEstaAberto] = useState(false)
 

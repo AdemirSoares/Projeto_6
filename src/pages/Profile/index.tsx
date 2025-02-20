@@ -6,6 +6,8 @@ import Loader from '../../components/Loader'
 import { useGetRestaurantesSelectedQuery } from '../../services/api'
 import MenuList from '../../components/MenuList'
 import BannerList from '../../components/BannerList'
+import Cart from '../../components/Cart'
+import Checkout from '../../components/Checkout'
 
 export const Profile = () => {
   const { id } = useParams() as ProfileParams
@@ -17,6 +19,8 @@ export const Profile = () => {
         <Header />
         <BannerList restaurante={restaurante} />
         <MenuList restaurante={restaurante} background="pink" />
+        <Cart />
+        {/* <Checkout /> */}
       </>
     )
   }

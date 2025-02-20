@@ -20,7 +20,7 @@ export const CartModal = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: none;
   justify-content: flex-end;
 
   &.is-open {
@@ -53,6 +53,8 @@ export const PriceTotal = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 16px;
 
   h2 {
     color: ${colors.lightPink};
@@ -60,7 +62,11 @@ export const PriceTotal = styled.div`
 `
 
 export const CartItem = styled.li`
+  background-color: ${colors.lightPink};
+  width: 344px;
+  height: 100px;
   display: flex;
+  padding: 8px;
   margin-bottom: 16px;
   position: relative;
 
@@ -95,7 +101,17 @@ export const CartItem = styled.li`
     border: none;
     background-color: transparent;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 76px;
+    right: 8px;
+    z-index: 1;
+    cursor: pointer;
+  }
+`
+
+export const CartStage = styled.div`
+  display: block;
+
+  &.is-checkout {
+    display: none;
   }
 `

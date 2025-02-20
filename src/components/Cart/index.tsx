@@ -2,60 +2,75 @@ import * as S from './styles'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
-import { close } from '../../store/reducers/cart'
+import { close, open, remove, startCheckout } from '../../store/reducers/cart'
 import Button from '../Button'
-import Pizza from '../../assets/image/pizza.png'
+import { getTotalPrice, parseToBrl } from '../../utils'
+import Checkout from '../Checkout'
 
 const Cart = () => {
-  const { isOpen } = useSelector((state: RootReducer) => state.cart)
+  const { isOpen, items, isOpenAddress, isCart } = useSelector(
+    (state: RootReducer) => state.cart
+  )
 
   const dispatch = useDispatch()
 
+  const openCart = () => {
+    dispatch(open())
+  }
+
+  const activeCheckout = () => {
+    if (getTotalPrice(items) > 0) {
+      dispatch(startCheckout())
+    } else {
+      alert('Não há itens no carrinho')
+    }
+  }
+
   const closeCart = () => {
     dispatch(close())
+  }
+
+  const removeItem = (id: number) => {
+    dispatch(remove(id))
   }
 
   return (
     <S.CartModal className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
-        <ul>
-          <S.CartItem>
-            <img src={Pizza} alt="Foto da pizza" />
-            <div>
-              <h3>Pizza Marguerita</h3>
-              <span>R$ 60,90</span>
-            </div>
-            <button type="button" />
-          </S.CartItem>
-          <S.CartItem>
-            <img src={Pizza} alt="Foto da pizza" />
-            <div>
-              <h3>Pizza Marguerita</h3>
-              <span>R$ 60,90</span>
-            </div>
-            <button type="button" />
-          </S.CartItem>
-          <S.CartItem>
-            <img src={Pizza} alt="Foto da pizza" />
-            <div>
-              <h3>Pizza Marguerita</h3>
-              <span>R$ 60,90</span>
-            </div>
-            <button type="button" />
-          </S.CartItem>
-        </ul>
-        <S.PriceTotal>
-          <h2>Valor total</h2>
-          <h2>R$ 0,00</h2>
-        </S.PriceTotal>
-        <Button title="Clique aqui para continuar com a entrega" type="button">
-          Continuar com a entrega
-        </Button>
-        <p className="empty-text">
-          O carrinho está vazio, adicione pelo menos um produto para continuar
-          com a compra
-        </p>
+        <S.CartStage className={!isCart ? 'is-checkout' : ''}>
+          <ul>
+            {items.map((item) => (
+              <S.CartItem key={item.id}>
+                <img src={item && item.foto} alt={item && item.nome} />
+                <div>
+                  <h3>{item.nome}</h3>
+                  <span>{parseToBrl(item.preco)}</span>
+                </div>
+                <button onClick={() => removeItem(item.id)} type="button" />
+              </S.CartItem>
+            ))}
+          </ul>
+          <S.PriceTotal>
+            <h2>Valor total</h2>
+            <h2>{parseToBrl(getTotalPrice(items))}</h2>
+          </S.PriceTotal>
+          <Button
+            onClick={activeCheckout}
+            title="Clique aqui para continuar com a entrega"
+            type="button"
+          >
+            Continuar com a entrega
+          </Button>
+          <p className="empty-text">
+            O carrinho está vazio, adicione pelo menos um produto para continuar
+            com a compra
+          </p>
+        </S.CartStage>
+        <Checkout
+          checkoutStart={isOpenAddress}
+          priceTotal={getTotalPrice(items)}
+        />
       </S.Sidebar>
     </S.CartModal>
   )
