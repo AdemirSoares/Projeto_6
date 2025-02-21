@@ -4,6 +4,10 @@ import { breakpoints } from '../../styles'
 export const Container = styled.section`
   margin-top: 80px;
   margin: 80px 171px;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 80%;
+  }
 `
 
 export const List = styled.ul`
