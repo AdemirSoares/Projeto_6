@@ -1,13 +1,17 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const FooterBar = styled.div`
   background-color: ${colors.lightPink};
   width: 1366px;
   height: 298px;
   display: block;
-  alingn-items: center;
+  align-items: center;
   justify-content: center;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 767px;
+  }
 
   .logo {
     padding-top: 40px;
@@ -26,10 +30,26 @@ export const FooterBar = styled.div`
   }
 
   .text {
+    display: flex;
     color: ${colors.pink};
+    width: 1366px;
     margin-top: 80px;
     margin-bottom: 40px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 99%;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .paragrafo {
+    width: 790px;
     text-align: center;
   }
-}
 `

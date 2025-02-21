@@ -6,7 +6,6 @@ import { usePurchaseMutation } from '../../services/api'
 import {
   backtoCart,
   payment,
-  confirmed,
   startCheckout,
   openClose,
   close,
@@ -24,10 +23,9 @@ type Props = {
 }
 
 const Checkout = ({ checkoutStart = false }: Props) => {
-  const [purchase, { isLoading, isError, data, isSuccess }] =
-    usePurchaseMutation()
+  const [purchase, { isLoading, data, isSuccess }] = usePurchaseMutation()
 
-  const { items, isOpenPayment, isConfirmed } = useSelector(
+  const { items, isOpenPayment } = useSelector(
     (state: RootReducer) => state.cart
   )
 
@@ -68,20 +66,20 @@ const Checkout = ({ checkoutStart = false }: Props) => {
       alert('Preencha antes os dados obrigatórios')
     }
   }
-  const activeConfirmed = () => {
-    if (
-      form.values.cardName &&
-      form.values.cardNumber &&
-      form.values.cardCode &&
-      form.values.zipCode &&
-      form.values.expiresMonth &&
-      form.values.expiresYear
-    ) {
-      dispatch(confirmed())
-    } else {
-      alert('Preencha antes os dados obrigatórios')
-    }
-  }
+  // const activeConfirmed = () => {
+  //   if (
+  //     form.values.cardName &&
+  //     form.values.cardNumber &&
+  //     form.values.cardCode &&
+  //     form.values.zipCode &&
+  //     form.values.expiresMonth &&
+  //     form.values.expiresYear
+  //   ) {
+  //     dispatch(confirmed())
+  //   } else {
+  //     alert('Preencha antes os dados obrigatórios')
+  //   }
+  // }
 
   const form = useFormik({
     initialValues: {
@@ -409,6 +407,7 @@ const Checkout = ({ checkoutStart = false }: Props) => {
                   onClick={form.handleSubmit}
                   type="submit"
                   title="Clique aqui para finalizar pagamento"
+                  disabled={isLoading}
                 >
                   {isLoading ? 'Finalizando pagamento...' : 'Finalizar compra'}
                 </Button>
@@ -416,7 +415,6 @@ const Checkout = ({ checkoutStart = false }: Props) => {
                   onClick={backAdress}
                   type="button"
                   title="Clique aqui para voltar para o carrinho"
-                  disabled={isLoading}
                 >
                   Voltar para a edição de endereço
                 </Button>

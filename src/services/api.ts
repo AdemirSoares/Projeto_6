@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-type Product = {
-  id: number
-  price: number
-}
-
 type PurchasePayload = {
-  products: Product[]
+  products: [
+    {
+      id: number
+      price: number
+    }
+  ]
   delivery: {
     receiver: string
     address: {

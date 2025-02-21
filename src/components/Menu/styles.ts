@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import Close from '../../assets/image/close.png'
 
 export const Card = styled.div`
@@ -68,6 +68,13 @@ export const BannerContainer = styled.div`
   width: 1024px;
   height: 344px;
   list-style: none;
+
+   @media (max-width: ${breakpoints.desktop}) {
+      top: 25%;
+      left: 4%;
+      width: 700px;
+      height: 344px;
+      }
   }
 `
 
@@ -94,6 +101,11 @@ export const Sidebar = styled.aside`
     img {
       width: 417px;
       height: 280px;
+
+      @media (max-width: ${breakpoints.desktop}) {
+        width: 349px;
+        height: 270px;
+      }
     }
 
     .geral {

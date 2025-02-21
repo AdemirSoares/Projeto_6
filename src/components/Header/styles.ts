@@ -1,11 +1,15 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeaderBar = styled.header`
   width: 1366px;
   height: 186px;
   margin-top: -23px;
   display: flex;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 767px;
+  }
 
   div {
     display: flex;

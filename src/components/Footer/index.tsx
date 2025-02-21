@@ -21,11 +21,13 @@ export const Footer = () => (
       </a>
     </div>
     <div className="text">
-      <p>
-        A efood é uma plataforma para divulgação de estabelecimentos, a
-        responsabilidade pela entrega, qualidade <br /> dos produtos é toda do
-        estabelecimento contratado
-      </p>
+      <div className="paragrafo">
+        <p>
+          A efood é uma plataforma para divulgação de estabelecimentos, a
+          responsabilidade pela entrega, qualidade dos produtos é toda do
+          estabelecimento contratado
+        </p>
+      </div>
     </div>
   </FooterBar>
 )
