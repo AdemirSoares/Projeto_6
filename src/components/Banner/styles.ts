@@ -14,6 +14,10 @@ export const Image = styled.div`
   @media (max-width: ${breakpoints.desktop}) {
     width: 767px;
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 500px;
+  }
 `
 
 export const Title = styled.h2`

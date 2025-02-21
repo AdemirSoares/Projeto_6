@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.white};
@@ -7,9 +7,18 @@ export const Card = styled.div`
   position: relative;
   border: 1px solid ${colors.pink};
 
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 430px;
+    margin-left: 50px;
+  }
+
   .capa {
-    width: 472px;
+    width: 450px;
     height: 217px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      width: 430px;
+    }
   }
 `
 

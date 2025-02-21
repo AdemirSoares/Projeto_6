@@ -7,8 +7,8 @@ export const Container = styled.section`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: ${breakpoints.desktop}) {
-    width: 100%;
+  @media (max-width: ${breakpoints.tablet}) {
+    margin: 56px 0 120px 40px;
   }
 `
 
@@ -18,6 +18,6 @@ export const List = styled.ul`
   column-gap: 32px;
 
   @media (max-width: ${breakpoints.desktop}) {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 `

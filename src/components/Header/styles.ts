@@ -11,10 +11,34 @@ export const HeaderBar = styled.header`
     width: 767px;
   }
 
-  div {
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 500px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: ${breakpoints.desktop}) {
+      width: 600px;
+    }
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: block;
+      text-align: center;
+    }
+
+    nav {
+
+      @media (max-width: ${breakpoints.tablet}) {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
   }
 
   a,
@@ -32,6 +56,10 @@ export const HeaderBar = styled.header`
   img {
     width: 125px;
     height: 57px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+        margin-bottom: 20px;
+    }
   }
 `
 
@@ -42,6 +70,11 @@ export const Links = styled.ul`
 export const LinkItem = styled.li`
   display: flex;
   margin-right: 16px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
 `
 
 export const CartButton = styled.a`

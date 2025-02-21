@@ -9,7 +9,7 @@ export const colors = {
 
 export const breakpoints = {
   desktop: '1024px',
-  tablet: '768'
+  tablet: '768px'
 }
 
 export const GlobalCss = createGlobalStyle`
@@ -23,6 +23,9 @@ export const GlobalCss = createGlobalStyle`
 body {
   background-color: ${colors.transparentPink};
   color: ${colors.white};
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .container {
@@ -31,6 +34,10 @@ body {
   margin: 0 auto;
 
   @media (max-width: ${breakpoints.desktop}) {
-  width: 80%;
-}
+    width: 80%;
+  }
+
+   @media (max-width: ${breakpoints.tablet}) {
+    width: 65%;
+  }
 `
