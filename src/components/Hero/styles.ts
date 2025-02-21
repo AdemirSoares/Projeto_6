@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
+import { colors } from '../../styles'
 
 export const HeroBar = styled.div`
   display: flex;
@@ -10,32 +10,15 @@ export const HeroBar = styled.div`
   display: block;
   margin-bottom: 50px;
 
-  @media (max-width: ${breakpoints.desktop}) {
-    width: 767px;
-  }
-
-  @media (max-width: ${breakpoints.tablet}) {
-    width: 500px;
-    height: 280px;
-  }
-
   .logo {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 64px;
 
-    @media (max-width: ${breakpoints.tablet}) {
-      text-align: center;
-    }
-
     img {
       width: 125px;
       height: 57.5px;
-
-      @media (max-width: ${breakpoints.tablet}) {
-        text-align: center;
-      }
     }
   }
 
@@ -45,13 +28,5 @@ export const HeroBar = styled.div`
     font-weight: bold;
     padding: 138.5px 414px 40px 414px;
     text-align: center;
-
-    @media (max-width: ${breakpoints.desktop}) {
-      padding: 138.5px 100px 40px 100px;
-    }
-
-    @media (max-width: ${breakpoints.desktop}) {
-      padding: 50px 50px 40px 50px;
-    }
   }
 `

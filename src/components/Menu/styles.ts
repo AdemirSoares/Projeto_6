@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { breakpoints, colors } from '../../styles'
 import Close from '../../assets/image/close.png'
+import { colors } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.pink};
@@ -68,13 +68,6 @@ export const BannerContainer = styled.div`
   width: 1024px;
   height: 344px;
   list-style: none;
-
-  @media (max-width: ${breakpoints.desktop}) {
-    left: 4%;
-    width: 700px;
-    height: 344px;
-  }
-}
 `
 
 export const Sidebar = styled.aside`
@@ -83,14 +76,6 @@ export const Sidebar = styled.aside`
   z-index: 1;
   padding: 32px;
   position: relative;
-
-  @media (max-width: ${breakpoints.tablet}) {
-    left: 0.4%;
-    width: 420px;
-    height: 660px;
-    display: block;
-    padding: 30px;
-  }
 
   .close {
     background-image: url(${Close});
@@ -105,42 +90,17 @@ export const Sidebar = styled.aside`
   }
 
   li {
-    @media (max-width: ${breakpoints.tablet}) {
-      width: 360px;
-      height: 270px;
-    }
-
     img {
       width: 417px;
       height: 280px;
-
-      @media (max-width: ${breakpoints.desktop}) {
-        width: 349px;
-        height: 270px;
-      }
-
-      @media (max-width: ${breakpoints.desktop}) {
-        width: 360px;
-        height: 270px;
-        margin-bottom: 20px;
-      }
     }
 
     .geral {
       display: flex;
 
-      @media (max-width: ${breakpoints.tablet}) {
-        display: block;
-      }
-
       .parcial {
         display: block;
         margin-left: 24px;
-
-        @media (max-width: ${breakpoints.tablet}) {
-          margin-left: 0;
-          margim-top: 20px;
-        }
       }
     }
 
@@ -149,10 +109,6 @@ export const Sidebar = styled.aside`
       font-size: 18px;
       color: ${colors.white};
       margin-bottom: 16px;
-
-      @media (max-width: ${breakpoints.tablet}) {
-        font-size: 28px;
-      }
     }
 
     p {
@@ -160,10 +116,6 @@ export const Sidebar = styled.aside`
       font-size: 14px;
       color: ${colors.white};
       margin-bottom: 36px;
-
-      @media (max-width: ${breakpoints.tablet}) {
-        font-size: 18px;
-      }
     }
 
     .porcao {
