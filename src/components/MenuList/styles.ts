@@ -6,10 +6,6 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: ${breakpoints.desktop}) {
-    width: 100%;
-  }
 `
 
 export const List = styled.ul`
