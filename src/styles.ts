@@ -34,10 +34,6 @@ body {
   margin: 0 auto;
 
   @media (max-width: ${breakpoints.desktop}) {
-    width: 80%;
-  }
-
-   @media (max-width: ${breakpoints.tablet}) {
-    width: 65%;
+    max-width: 80%;
   }
 `

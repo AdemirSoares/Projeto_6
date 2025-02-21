@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Close from '../../assets/image/close.png'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.pink};
@@ -68,6 +68,10 @@ export const BannerContainer = styled.div`
   width: 1024px;
   height: 344px;
   list-style: none;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    left: 30px;
+  }
 `
 
 export const Sidebar = styled.aside`
@@ -76,6 +80,11 @@ export const Sidebar = styled.aside`
   z-index: 1;
   padding: 32px;
   position: relative;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 370px;
+    height: 600px;
+  }
 
   .close {
     background-image: url(${Close});
@@ -93,14 +102,27 @@ export const Sidebar = styled.aside`
     img {
       width: 417px;
       height: 280px;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        width: 300px;
+        height: 200px;
+      }
     }
 
     .geral {
       display: flex;
 
+      @media (max-width: ${breakpoints.tablet}) {
+        display: block;
+      }
+
       .parcial {
         display: block;
         margin-left: 24px;
+
+        @media (max-width: ${breakpoints.tablet}) {
+          margin-left: 0;
+        }
       }
     }
 
@@ -109,6 +131,11 @@ export const Sidebar = styled.aside`
       font-size: 18px;
       color: ${colors.white};
       margin-bottom: 16px;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        font-size: 26px;
+        margin-top: 20px;
+      }
     }
 
     p {
@@ -116,6 +143,10 @@ export const Sidebar = styled.aside`
       font-size: 14px;
       color: ${colors.white};
       margin-bottom: 36px;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        font-size: 17px;
+      }
     }
 
     .porcao {
@@ -123,6 +154,10 @@ export const Sidebar = styled.aside`
       font-size: 14px;
       color: ${colors.white};
       margin-bottom: 16px;
+
+      @media (max-width: ${breakpoints.tablet}) {
+        font-size: 17px;
+      }
     }
   }
 `

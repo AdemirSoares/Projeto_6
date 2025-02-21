@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeroBar = styled.div`
   display: flex;
@@ -9,6 +9,11 @@ export const HeroBar = styled.div`
   height: 384px;
   display: block;
   margin-bottom: 50px;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 425px;
+    height: 300px;
+  }
 
   .logo {
     display: flex;
@@ -24,9 +29,12 @@ export const HeroBar = styled.div`
 
   h2 {
     color: ${colors.pink};
-
     font-weight: bold;
     padding: 138.5px 414px 40px 414px;
     text-align: center;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      padding: 50px 5px 20px 5px;
+    }
   }
 `

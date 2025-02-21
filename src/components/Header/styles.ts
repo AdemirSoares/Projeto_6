@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 
 export const HeaderBar = styled.header`
   width: 1366px;
@@ -7,10 +7,21 @@ export const HeaderBar = styled.header`
   margin-top: -23px;
   display: flex;
 
+  @media (max-width: ${breakpoints.tablet}) {
+    width: 425px;
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      display: block;
+      text-align: center;
+    }
 
     nav {
   }
@@ -30,10 +41,20 @@ export const HeaderBar = styled.header`
   img {
     width: 125px;
     height: 57px;
+
+    @media (max-width: ${breakpoints.tablet}) {
+      margin-bottom: 20px
+    }
 `
 
 export const Links = styled.ul`
   display: flex;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
 `
 
 export const LinkItem = styled.li`
