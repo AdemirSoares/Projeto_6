@@ -9,6 +9,10 @@ export const FooterBar = styled.div`
   align-items: center;
   justify-content: center;
 
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 768px;
+  }
+
   @media (max-width: ${breakpoints.tablet}) {
     width: 425px;
   }

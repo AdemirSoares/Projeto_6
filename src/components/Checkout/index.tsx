@@ -23,7 +23,7 @@ type Props = {
 }
 
 const Checkout = ({ checkoutStart = false }: Props) => {
-  const [purchase, { isLoading, data, isSuccess }] = usePurchaseMutation()
+  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
 
   const { items, isOpenPayment } = useSelector(
     (state: RootReducer) => state.cart
@@ -66,20 +66,6 @@ const Checkout = ({ checkoutStart = false }: Props) => {
       alert('Preencha antes os dados obrigatórios')
     }
   }
-  // const activeConfirmed = () => {
-  //   if (
-  //     form.values.cardName &&
-  //     form.values.cardNumber &&
-  //     form.values.cardCode &&
-  //     form.values.zipCode &&
-  //     form.values.expiresMonth &&
-  //     form.values.expiresYear
-  //   ) {
-  //     dispatch(confirmed())
-  //   } else {
-  //     alert('Preencha antes os dados obrigatórios')
-  //   }
-  // }
 
   const form = useFormik({
     initialValues: {
@@ -274,7 +260,7 @@ const Checkout = ({ checkoutStart = false }: Props) => {
                     <label htmlFor="number">Número</label>
                     <input
                       id="number"
-                      type="number"
+                      type="text"
                       name="number"
                       value={form.values.number}
                       onChange={form.handleChange}
@@ -388,9 +374,10 @@ const Checkout = ({ checkoutStart = false }: Props) => {
                   </S.InputGroup>
                   <S.InputGroup maxWidth="155px">
                     <label htmlFor="expiresYear">Ano de vencimento</label>
-                    <input
+                    <InputMask
+                      mask="99"
                       id="expiresYear"
-                      type="number"
+                      type="text"
                       required
                       name="expiresYear"
                       value={form.values.expiresYear}

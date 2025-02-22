@@ -7,6 +7,10 @@ export const HeaderBar = styled.header`
   margin-top: -23px;
   display: flex;
 
+  @media (max-width: ${breakpoints.desktop}) {
+    width: 768px;
+  }
+
   @media (max-width: ${breakpoints.tablet}) {
     width: 425px;
     margin-top: 0;
