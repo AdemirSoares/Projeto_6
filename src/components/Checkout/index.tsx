@@ -23,7 +23,7 @@ type Props = {
 }
 
 const Checkout = ({ checkoutStart = false }: Props) => {
-  const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
+  const [purchase, { data, isLoading, isSuccess }] = usePurchaseMutation()
 
   const { items, isOpenPayment } = useSelector(
     (state: RootReducer) => state.cart
@@ -137,7 +137,7 @@ const Checkout = ({ checkoutStart = false }: Props) => {
           payment: {
             card: {
               name: values.cardName,
-              number: Number(values.cardNumber),
+              number: values.cardNumber,
               code: Number(values.cardCode),
               expires: {
                 month: Number(values.expiresMonth),

@@ -44,7 +44,7 @@ export const Sidebar = styled.aside`
   .empty-text {
     font-size: 14px;
     line-height: 22px;
-    color: ${colors.pink};
+    color: ${colors.lightPink};
     text-align: center;
   }
 `

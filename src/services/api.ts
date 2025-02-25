@@ -19,7 +19,7 @@ type PurchasePayload = {
     payment: {
       card: {
         name?: string
-        number?: number
+        number?: string
         code?: number
         expires?: {
           month: number

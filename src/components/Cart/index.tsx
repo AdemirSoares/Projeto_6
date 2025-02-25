@@ -2,7 +2,7 @@ import * as S from './styles'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
-import { close, open, remove, startCheckout } from '../../store/reducers/cart'
+import { close, remove, startCheckout } from '../../store/reducers/cart'
 import Button from '../Button'
 import { getTotalPrice, parseToBrl } from '../../utils'
 import Checkout from '../Checkout'
@@ -13,10 +13,6 @@ const Cart = () => {
   )
 
   const dispatch = useDispatch()
-
-  const openCart = () => {
-    dispatch(open())
-  }
 
   const activeCheckout = () => {
     if (getTotalPrice(items) > 0) {
@@ -38,35 +34,42 @@ const Cart = () => {
     <S.CartModal className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeCart} />
       <S.Sidebar>
-        <S.CartStage className={!isCart ? 'is-checkout' : ''}>
-          <ul>
-            {items.map((item) => (
-              <S.CartItem key={item.id}>
-                <img src={item && item.foto} alt={item && item.nome} />
-                <div>
-                  <h3>{item.nome}</h3>
-                  <span>{parseToBrl(item.preco)}</span>
-                </div>
-                <button onClick={() => removeItem(item.id)} type="button" />
-              </S.CartItem>
-            ))}
-          </ul>
-          <S.PriceTotal>
-            <h2>Valor total</h2>
-            <h2>{parseToBrl(getTotalPrice(items))}</h2>
-          </S.PriceTotal>
-          <Button
-            onClick={activeCheckout}
-            title="Clique aqui para continuar com a entrega"
-            type="button"
-          >
-            Continuar com a entrega
-          </Button>
-          <p className="empty-text">
-            O carrinho está vazio, adicione pelo menos um produto para continuar
-            com a compra
-          </p>
-        </S.CartStage>
+        {items.length > 0 ? (
+          <>
+            <ul>
+              {items.map((item) => (
+                <S.CartItem key={item.id}>
+                  <img src={item && item.foto} alt={item && item.nome} />
+                  <div>
+                    <h3>{item.nome}</h3>
+                    <span>{parseToBrl(item.preco)}</span>
+                  </div>
+                  <button onClick={() => removeItem(item.id)} type="button" />
+                </S.CartItem>
+              ))}
+            </ul>
+            <S.PriceTotal>
+              <h2>Valor total</h2>
+              <h2>{parseToBrl(getTotalPrice(items))}</h2>
+            </S.PriceTotal>
+            <Button
+              onClick={activeCheckout}
+              title="Clique aqui para continuar com a entrega"
+              type="button"
+            >
+              Continuar com a entrega
+            </Button>
+          </>
+        ) : (
+          <>
+            <S.CartStage className={!isCart ? 'is-checkout' : ''}>
+              <p className="empty-text">
+                O carrinho está vazio, adicione pelo menos um produto para
+                continuar com a compra.
+              </p>
+            </S.CartStage>
+          </>
+        )}
         <Checkout
           checkoutStart={isOpenAddress}
           priceTotal={getTotalPrice(items)}
