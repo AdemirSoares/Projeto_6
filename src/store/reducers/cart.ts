@@ -6,6 +6,7 @@ type CartState = {
   isOpenAddress: boolean
   isOpenPayment: boolean
   isConfirmed: boolean
+  isSuccess: boolean
   isCart: boolean
 }
 
@@ -15,6 +16,7 @@ const initialState: CartState = {
   isOpenAddress: false,
   isOpenPayment: false,
   isConfirmed: false,
+  isSuccess: false,
   isCart: true
 }
 
@@ -70,6 +72,9 @@ const cartSlice = createSlice({
       state.isOpenPayment = false
       state.isConfirmed = false
       state.isCart = true
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
@@ -83,6 +88,7 @@ export const {
   payment,
   openClose,
   confirmed,
-  backtoCart
+  backtoCart,
+  clear
 } = cartSlice.actions
 export default cartSlice.reducer

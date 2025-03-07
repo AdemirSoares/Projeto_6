@@ -26,8 +26,6 @@ export const HeaderBar = styled.header`
       display: block;
       text-align: center;
     }
-
-    nav {
   }
 
   a,
@@ -47,8 +45,9 @@ export const HeaderBar = styled.header`
     height: 57px;
 
     @media (max-width: ${breakpoints.tablet}) {
-      margin-bottom: 20px
+      margin-bottom: 20px;
     }
+  }
 `
 
 export const Links = styled.ul`

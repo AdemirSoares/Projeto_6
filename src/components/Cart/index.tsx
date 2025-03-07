@@ -2,15 +2,18 @@ import * as S from './styles'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
-import { close, remove, startCheckout } from '../../store/reducers/cart'
+import { clear, close, remove, startCheckout } from '../../store/reducers/cart'
 import Button from '../Button'
 import { getTotalPrice, parseToBrl } from '../../utils'
 import Checkout from '../Checkout'
+import { useEffect } from 'react'
+import { usePurchaseMutation } from '../../services/api'
 
 const Cart = () => {
   const { isOpen, items, isOpenAddress, isCart } = useSelector(
     (state: RootReducer) => state.cart
   )
+  const [purchase, { isSuccess }] = usePurchaseMutation()
 
   const dispatch = useDispatch()
 
@@ -29,6 +32,12 @@ const Cart = () => {
   const removeItem = (id: number) => {
     dispatch(remove(id))
   }
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
 
   return (
     <S.CartModal className={isOpen ? 'is-open' : ''}>

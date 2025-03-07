@@ -9,13 +9,15 @@ import {
   startCheckout,
   openClose,
   close,
-  open
+  open,
+  clear
 } from '../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import Button from '../Button'
 import InputMask from 'react-input-mask'
 import { getTotalPrice, parseToBrl } from '../../utils'
+import { useEffect } from 'react'
 
 type Props = {
   checkoutStart?: boolean
@@ -51,6 +53,12 @@ const Checkout = ({ checkoutStart = false }: Props) => {
   const openCart = () => {
     dispatch(open())
   }
+
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(clear())
+    }
+  }, [isSuccess, dispatch])
 
   const activePayment = () => {
     if (
@@ -133,16 +141,16 @@ const Checkout = ({ checkoutStart = false }: Props) => {
             zipCode: values.zipCode,
             number: Number(values.number),
             complement: values.complement
-          },
-          payment: {
-            card: {
-              name: values.cardName,
-              number: values.cardNumber,
-              code: Number(values.cardCode),
-              expires: {
-                month: Number(values.expiresMonth),
-                year: Number(values.expiresYear)
-              }
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardName,
+            number: values.cardNumber,
+            code: Number(values.cardCode),
+            expires: {
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
             }
           }
         }
