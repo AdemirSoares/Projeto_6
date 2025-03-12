@@ -71,7 +71,7 @@ const Checkout = ({ checkoutStart = false }: Props) => {
     ) {
       dispatch(payment())
     } else {
-      alert('Preencha antes os dados obrigatórios')
+      form.handleSubmit()
     }
   }
 

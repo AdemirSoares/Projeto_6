@@ -46,7 +46,7 @@ export const Overlay = styled.div`
   width: 100%;
   height: 100%;
   background-color: #000;
-  opacity: 0.8;
+  opacity: 0.7;
 `
 
 export const Modal = styled.div`
@@ -63,10 +63,9 @@ export const Modal = styled.div`
 
 export const BannerContainer = styled.div`
   position: fixed;
-  top: 25%;
-  left: 12%;
   width: 1024px;
   height: 344px;
+  margin-top: -750px;
   list-style: none;
 
   @media (max-width: ${breakpoints.tablet}) {

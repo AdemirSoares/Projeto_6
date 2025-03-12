@@ -3,6 +3,7 @@ import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
   background-color: ${colors.white};
+  width: 472px;
   margin-bottom: 32px;
   position: relative;
   border: 1px solid ${colors.pink};
