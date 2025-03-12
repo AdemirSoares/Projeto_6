@@ -3,6 +3,7 @@ import Close from '../../assets/image/close.png'
 import { breakpoints, colors } from '../../styles'
 
 export const Card = styled.div`
+  position: relative;
   background-color: ${colors.pink};
   margin-bottom: 32px;
   position: relative;
@@ -50,7 +51,9 @@ export const Overlay = styled.div`
 `
 
 export const Modal = styled.div`
-  display: flex;
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 512px;
   align-items: center;
   justify-content: center;
   display: none;
